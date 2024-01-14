@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="stylesheet" href="{% static "mdb5/css/mdb.min.css" %}" />
+
+    <title>Bootstrap Example</title>
+    <script type="text/javascript" src="{% static "mdb5/js/mdb.umd.min.js" %}"></script>
+  </head>
+  <body style="font-family:'Arial', sans-serif;">
+
+    <div class="card">
+      <div class="card-body">
+        <a class="btn btn-secondary" href="{% url 'dash' %}" style="border-radius: 100px;" data-mdb-ripple-init role="button">back</a>
+        <form method="post" action="{% url 'delete_contact' contact.id %}" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger" style="border-radius: 100px;">Delete</button>
+        </form>
+        <br>
+        <br>
+        <h1>{{ contact.name }}</h1>
+        <br>
+        <p><b>Phone 1</b>: {{ contact.mobile_number1 }}</p>
+        <p><b>phone 2</b>: {{ contact.mobile_number2 }}</p>
+        <p><b>Email 1</b>: {{ contact.email1 }}</p>
+        <p><b>Email 2</b>: {{ contact.email2 }}</p>
+        <p><b>Age</b>: {{ contact.age }}</p>
+        <p><b>Instagram</b>: {{ contact.ig }}</p>
+        <p><b>X</b>: {{ contact.x }}</p>
+        <p><b>Telegram</b>: {{ contact.telegram }}</p>
+        <p><b>Snapchat</b>: {{ contact.snapchat }}</p>
+        <p><b>Linkedin</b>: {{ contact.linkedin }}</p>
+      </div>
+    </div>
+  </body>
+</html>
